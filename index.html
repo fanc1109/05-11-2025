@@ -56,7 +56,7 @@ input[type="number"], input[type="text"] {
         <h1>Consultor Meteriológico</h1>
         <label for="cep">Digite o CEP:</label>
         <input type="text" id="cep" name="cep" placeholder="Ex: 12345-678"><br>
-        <label for="logradouro">Logradouro:</label>
+        <label for="temperatura">temperatura:</label>
         <input type="text" id="logradouro" name="logradouro"> <br>
         <label for="bairro">Bairro:</label>
         <input type="text" id="bairro" name="bairro"><br>
@@ -72,14 +72,14 @@ input[type="number"], input[type="text"] {
     // 2. Adicionar o event listener para o evento 'blur'(executado quando é retirado o mouse)
     campoCep.addEventListener('blur', function() {
         let valorCep  = campoCep.value; // pegar o valor do campoCep
-        fetch("https://viacep.com.br/ws/"+valorCep+"/json/")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+ campocep.data.localidade+ "&appid="+8af2e94c9bbcb31625ca0c83d481310a+"")
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                document.getElementById('logradouro').value =  data.logradouro || '';
-                document.getElementById('bairro').value =  data.bairro || '' ;
-                document.getElementById('cidade').value =  data.localidade || ''; 
-                document.getElementById('estado').value =  data.estado || '';
+                document.getElementById('temperatura').value =  data.temperatura || '';
+                document.getElementById('condição').value =  data.condicao || '' ;
+                document.getElementById('umidade').value =  data.umidade || ''; 
+                document.getElementById('vento').value =  data.vento || '';
                 mudaBorda(0)
             })
             

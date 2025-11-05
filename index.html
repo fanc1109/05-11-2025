@@ -72,7 +72,7 @@ input[type="number"], input[type="text"] {
     // 2. Adicionar o event listener para o evento 'blur'(executado quando é retirado o mouse)
     campoCep.addEventListener('blur', function() {
         let valorCep  = campoCep.localidade; // pegar o valor do campoCep
-        fetch("https://api.openweathermap.org/data/2.5/weather?q="+campoCep+ "&appid=8af2e94c9bbcb31625ca0c83d481310a")
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+cidade+ '&appid=8af2e94c9bbcb31625ca0c83d481310a,&units=metric&lang=pt_br' )
             .then(response => response.json())
             .then(data => {
                 console.log(data);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <style>
+    <!-- <style>
    body {
     background: linear-gradient(135deg, #3d7dcbff, #165a6fff);
     color: #fff;
@@ -49,14 +49,15 @@ input[type="number"], input[type="text"] {
 }
 
     
-    </style>
+    </style> -->
 </head>
     <body>
     <form>
         <h1>Consultor Meteriológico</h1>
-        <label for="cep">Digite o CEP:</label>
-        <input type="text" id="cep" name="cep" placeholder="Ex:rio do sul"><br>
-        <label for="temperatura">temperatura:</label>
+        <label for="cep">Digite o nome da cidade:</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Ex:rio do sul">
+        <button onclick="tempo()">buscar</button>
+       <br> <label for="temperatura">temperatura:</label>
         <input type="text" id="temperatura" name="temperatura"> <br>
         <label for="condicao">condição:</label>
         <input type="text" id="condicao" name="condicao"><br>
@@ -64,20 +65,21 @@ input[type="number"], input[type="text"] {
         <input type="text" id="umidade" name="umidade"> <br>
         <label for="vento">vento:</label>
         <input type="text" id="vento" name="vento">
+      
 </form>
 
 <script>
      // 1. Selecionar o elemento pelo ID
-    var campoCep = document.getElementById('cep');
+    var cidade = document.getElementById('cidade');
     // 2. Adicionar o event listener para o evento 'blur'(executado quando é retirado o mouse)
-    campoCep.addEventListener('blur', function() {
-        let valorCep  = campoCep.localidade; // pegar o valor do campoCep
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+cidade+ '&appid=8af2e94c9bbcb31625ca0c83d481310a,&units=metric&lang=pt_br' )
+    cidade.addEventListener('blur', function tempo() {
+        let valorCidade  = cidade.localidade; // pegar o valor do campoCep
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+cidade+ '&appid=8af2e94c9bbcb31625ca0c83d481310a&units=metric&lang=pt_br' )
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 document.getElementById('temperatura').value =  data.temperatura || '';
-                document.getElementById('condição').value =  data.condicao || '' ;
+                document.getElementById('condicao').value =  data.condicao || '' ;
                 document.getElementById('umidade').value =  data.umidade || ''; 
                 document.getElementById('vento').value =  data.vento || '';
                

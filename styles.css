@@ -1,0 +1,45 @@
+
+   body {
+    background: linear-gradient(135deg, #3d7dcbff, #165a6fff);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+form {
+    background: #2c3e50;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #ecf0f1;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 16px;
+}
+
+    
